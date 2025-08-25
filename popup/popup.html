@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Hear Me AI</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    
+   body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 20px;
+      width: 340px;
+      color: #333;
+    }
 
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      color: #2563eb;
+    }
+
+    textarea, input[type="text"], input[type="file"] {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 14px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      resize: none;
+    }
+
+    textarea:focus, input[type="text"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+    }
+
+    .slider-box {
+      margin: 12px 0;
+    }
+
+    .slider-box label {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 5px;
+      border-radius: 5px;
+      background: #e5e7eb;
+      appearance: none;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #2563eb;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: #1d4ed8;
+    }
+
+    button {
+      background: #2563eb;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 8px 0;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    button:active {
+      background: #1e40af;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #e5e7eb;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hear Me AI 🎧</h2>
+
+  <!-- 텍스트 입력 -->
+  <label>읽을 텍스트</label><br>
+  <textarea id="textInput" placeholder="텍스트를 입력하세요..."></textarea><br>
+  <button id="speakBtn">텍스트 읽기</button>
+
+  <!-- 속도 조절 -->
+  <div class="slider-box">
+    <label>속도</label>
+    <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="1.0">
+    <span id="rateVal">1.0</span>
+  </div>
+
+  <!-- 피치 조절 -->
+  <div class="slider-box">
+    <label>피치</label>
+    <input type="range" id="pitchSlider" min="0" max="2" step="0.1" value="1.0">
+    <span id="pitchVal">1.0</span>
+  </div>
+
+  <!-- 피드백 -->
+  <label>피드백 입력 (예: 빠름, 느림, 높음, 낮음)</label><br>
+  <input type="text" id="feedbackInput" placeholder="피드백을 입력하세요...">
+  <button id="applyFeedbackBtn">피드백 반영</button>
+
+  <!-- 오디오 파일 재생 -->
+  <label>오디오 파일 선택</label><br>
+  <input type="file" id="audioFile" accept="audio/*"><br>
+  <button id="playAudioBtn">오디오 파일 재생</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

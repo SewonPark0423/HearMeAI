@@ -1,0 +1,14 @@
+{
+  "name": "HearMeAI",
+  "description": "텍스트 및 오디오 파일 음성 조절 AI",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Hear Me AI",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": ["tabs", "scripting", "tabCapture"]
+}
